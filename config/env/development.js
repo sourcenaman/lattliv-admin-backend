@@ -42,6 +42,10 @@
              database: "postgres" //optional
      })
    }),
+   models: {
+
+    migrate: 'alter',
+   },
   
  
    sockets: Object.assign({}, PRODUCTION_CONFIG.sockets, {
