@@ -18,48 +18,37 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
     sku: {
-      type: "string",
-      required: true,
+      type: 'string',
       unique: true,
-      description: "Product code",
+      required: true
     },
     name: {
-      type: "string",
-      required: true,
-      description: "Product name",
+      type: 'string',
     },
-    short_desc: {
-      type: "string",
-      required: true,
-      description: "Short product description",
+    shortDesc: {
+      type: 'string',
     },
-    long_desc: {
-      type: "string",
-      required: true,
-      description: "Long product description",
+    longDesc: {
+      type: 'string',
     },
     price: {
-      type: "number",
-      required: true,
-      description: "Product price",
+      type: 'number',
     },
     category: {
-      model: "Category",
+      model: 'Category',
     },
     state: {
-      model: "State",
+      model: 'state',
+      required: true
     },
-    created_by: {
-      model: "User",
+    createdBy: {
+      model: 'user',
+      required: true
     },
     specification: {
-      type: "json",
-      required: true,
-      description:
-        "A product will have multiple attributes, which will be stored in this field.",
+      type: 'json',
     },
-  }
+  },
 };
 

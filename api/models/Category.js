@@ -6,42 +6,40 @@
  */
 
 module.exports = {
-
   attributes: {
-
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
 
-
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
     name: {
-      type: "string",
+      type: 'string',
       required: true,
-      description: "Product category name"
     },
     desc: {
-      type: "string",
-      description: "Product category description"
+      type: 'string',
     },
     parent: {
-      model: "Category"
+      model: 'category',
     },
-    created_by: {
-      model: "User"
+    children: {
+      collection: 'category',
+      via: 'parent',
+    },
+    createdBy: {
+      model: 'user',
+      required: true,
     },
     state: {
-      model: "State"
-    }
+      model: 'state',
+      required: true,
+    },
   },
-
 };
 

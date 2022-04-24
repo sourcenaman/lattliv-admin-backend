@@ -14,12 +14,10 @@ a [Sails v1](https://sailsjs.com) application
 
 ### Version info
 
-This app was originally generated on Sat Apr 16 2022 15:32:00 GMT+0530 (India Standard Time) using Sails v1.5.2.
+This app was originally generated on Sun Apr 24 2022 10:38:20 GMT+0530 (India Standard Time) using Sails v1.5.2.
 
 <!-- Internally, Sails used [`sails-generate@2.0.6`](https://github.com/balderdashy/sails-generate/tree/v2.0.6/lib/core-generators/new). -->
 
-
-This project's boilerplate is based on an expanded seed app provided by the [Sails core team](https://sailsjs.com/about) to make it easier for you to build on top of ready-made features like authentication, enrollment, email verification, and billing.  For more information, [drop us a line](https://sailsjs.com/support).
 
 
 <!--
