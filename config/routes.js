@@ -19,7 +19,8 @@ module.exports.routes = {
    ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  'GET /something': { action: 'product/view' },
+  'GET /products/': { action: 'product/view-all' },
+  'POST /products/create': { action: 'product/create' },
 
   /***************************************************************************
    *                                                                          *

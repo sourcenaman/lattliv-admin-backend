@@ -19,11 +19,9 @@ module.exports = {
 
   fn: async function () {
 
-    // All done.
-    let response = {
-      name: 'Naman'
-    };
-    return response;
+    console.log("This is sparta");
+    var product = await Product.find();
+    return product;
 
   }
 
