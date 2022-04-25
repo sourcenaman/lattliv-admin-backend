@@ -20,7 +20,7 @@ module.exports = {
   fn: async function () {
 
     console.log("This is sparta");
-    var product = await Product.find();
+    var product = await Product.find().populate('createdBy').populate('state').populate('category');
     return product;
 
   }
