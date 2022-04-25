@@ -18,9 +18,25 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
-  'GET /products/': { action: 'product/view-all' },
-  'POST /products/create': { action: 'product/create' },
+  "/": { view: "pages/homepage" },
+
+  //PRODUCTS
+  "GET /products/": { action: "product/view-all" },
+  "POST /products/create": { action: "product/create" },
+  "POST /products/update/:id": { action: "product/update" },
+
+  //USERS
+  "GET /users/": { action: "user/view-all" },
+  "POST /users/create": { action: "user/create" },
+
+  //CATEGORIES
+  "GET /categories/": { action: "category/view-all" },
+  "POST /categories/create": { action: "category/create" },
+  "POST /categories/update/:id": { action: "category/update" },
+
+  //STATES
+  "GET /states/": { action: "state/view-all" },
+  "POST /states/create": { action: "state/create" },
 
   /***************************************************************************
    *                                                                          *

@@ -6,33 +6,21 @@ module.exports = {
   description: "Create product.",
 
   inputs: {
-    sku: {
-      type: "string",
-      required: true,
-    },
     name: {
       type: "string",
+      required: true,
     },
-    shortDesc: {
+    desc: {
       type: "string",
     },
-    longDesc: {
-      type: "string",
-    },
-    price: {
+    parent: {
       type: "number",
     },
-    specification: {
-      type: "json",
-    },
-    category: {
-      type: "number",
-    },
-    state: {
+    createdBy: {
       type: "number",
       required: true,
     },
-    createdBy: {
+    state: {
       type: "number",
       required: true,
     },
@@ -41,7 +29,7 @@ module.exports = {
   exits: {},
 
   fn: async function (inputs) {
-    var product = await Product.create(inputs).fetch();
-    return product;
+    var category = await Category.create(inputs).fetch();
+    return category;
   },
 };
