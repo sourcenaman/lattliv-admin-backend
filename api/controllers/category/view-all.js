@@ -19,8 +19,7 @@ module.exports = {
 
   fn: async function () {
 
-    console.log("This is sparta");
-    var category = await Category.find().populate('createdBy').populate('state');
+    var category = await Category.find().populate('createdBy').populate('state').populate('children');
     return category;
 
   }

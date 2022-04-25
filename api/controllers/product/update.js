@@ -1,28 +1,47 @@
 module.exports = {
+  friendlyName: "Update",
 
-
-  friendlyName: 'Update',
-
-
-  description: 'Update product.',
-
+  description: "Update product.",
 
   inputs: {
-
+    id: {
+      type: "number",
+      required: true,
+    },
+    sku: {
+      type: "string"
+    },
+    name: {
+      type: "string",
+    },
+    shortDesc: {
+      type: "string",
+    },
+    longDesc: {
+      type: "string",
+    },
+    price: {
+      type: "number",
+    },
+    specification: {
+      type: "json",
+    },
+    category: {
+      type: "number",
+    },
+    state: {
+      type: "number"
+    },
+    createdBy: {
+      type: "number"
+    },
   },
 
-
-  exits: {
-
-  },
-
+  exits: {},
 
   fn: async function (inputs) {
-
     // All done.
-    return;
-
-  }
-
-
+    var product = await Product.updateOne({id: inputs.id}).set(inputs)
+    return product;
+  },
 };

@@ -19,9 +19,14 @@ module.exports = {
 
   fn: async function () {
 
-    console.log("This is sparta");
-    var product = await Product.find().populate('createdBy').populate('state').populate('category');
-    return product;
+    var products = await Product.find().populate('createdBy').populate('state').populate('category');
+    for (var i=0; i<products.length; i++){
+      if (products[i].category.parent){
+        var parent = await Category.findOne({select: ['name'], where: {id: products[i].category.parent} });
+        products[i].category.parent = parent
+      }
+    }
+    return products;
 
   }
 
