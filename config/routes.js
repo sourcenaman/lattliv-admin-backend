@@ -31,6 +31,8 @@ module.exports.routes = {
 
   //CATEGORIES
   "GET /categories/": { action: "category/view-all" },
+  "GET /categories/parents/": { action: "category/view-parents" },
+  "GET /categories/:id/children/": { action: "category/view-children" },
   "POST /categories/create": { action: "category/create" },
   "POST /categories/update/:id": { action: "category/update" },
 
