@@ -22,6 +22,7 @@ module.exports.routes = {
 
   //PRODUCTS
   "GET /products/": { action: "product/view-all" },
+  "GET /products/:id": { action: "product/view-one" },
   "POST /products/create": { action: "product/create" },
   "POST /products/update/:id": { action: "product/update" },
 
@@ -43,9 +44,9 @@ module.exports.routes = {
   /***************************************************************************
    *                                                                          *
    * More custom routes here...                                               *
-   * (See https://sailsjs.com/config/routes for examples.)                    *
+   * (See https://sailsjs.com/config/routes for examples.)                     *
    *                                                                          *
-   * If a request to a URL doesn't match any of the routes in this file, it   *
+   * If a request to a URL doesn't match any of the routes in this file, it    *
    * is matched against "shadow routes" (e.g. blueprint routes).  If it does  *
    * not match any of those, it is matched against static assets.             *
    *                                                                          *

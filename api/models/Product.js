@@ -25,6 +25,8 @@ module.exports = {
     },
     name: {
       type: "string",
+      unique: true,
+      allowNull: true
     },
     shortDesc: {
       type: "string",
@@ -64,6 +66,11 @@ module.exports = {
     tags: {
       collection: "tag",
       via: "products",
+    },
+    slug: {
+      type: "string",
+      unique: true,
+      allowNull: true,
     },
   },
 };
