@@ -29,9 +29,13 @@ module.exports = {
     phone: {
       type: 'string'
     },
-    products: {
+    products_created: {
       collection: 'product',
       via: 'createdBy',
+    },
+    products_approved: {
+      collection: 'product',
+      via: 'approvedBy',
     },
     categories: {
       collection: 'category',
