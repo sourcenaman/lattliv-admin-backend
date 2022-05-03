@@ -19,7 +19,7 @@ module.exports = {
 
   fn: async function () {
 
-    var product = await User.find();
+    var product = await User.find().sort("id DESC");
     return product;
 
   }

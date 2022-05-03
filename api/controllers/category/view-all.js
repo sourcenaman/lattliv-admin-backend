@@ -19,7 +19,7 @@ module.exports = {
 
   fn: async function () {
 
-    var category = await Category.find().populate('createdBy').populate('state').populate('children');
+    var category = await Category.find().populate('createdBy').populate('state').populate('children').sort('id DESC');
     return category;
 
   }
