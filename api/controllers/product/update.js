@@ -9,7 +9,7 @@ module.exports = {
       required: true,
     },
     sku: {
-      type: "string"
+      type: "string",
     },
     name: {
       type: "string",
@@ -29,11 +29,17 @@ module.exports = {
     category: {
       type: "number",
     },
+    inStock: {
+      type: "boolean",
+    },
+    slug: {
+      type: "string",
+    },
     state: {
-      type: "number"
+      type: "number",
     },
     createdBy: {
-      type: "number"
+      type: "number",
     },
   },
 
@@ -41,7 +47,7 @@ module.exports = {
 
   fn: async function (inputs) {
     // All done.
-    var product = await Product.updateOne({id: inputs.id}).set(inputs)
+    var product = await Product.updateOne({ id: inputs.id }).set(inputs);
     return product;
   },
 };
