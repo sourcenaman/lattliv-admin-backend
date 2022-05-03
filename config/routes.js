@@ -13,7 +13,7 @@ module.exports.routes = {
    *                                                                          *
    * Make the view located at `views/homepage.ejs` your home page.            *
    *                                                                          *
-   * (Alternatively, remove this and add an `index.html` file in your         *
+   * (Alternatively, remove this and add an `index.html` file in your          *
    * `assets` directory)                                                      *
    *                                                                          *
    ***************************************************************************/
@@ -40,6 +40,7 @@ module.exports.routes = {
   //STATES
   "GET /states/": { action: "state/view-all" },
   "POST /states/create": { action: "state/create" },
+  "POST /states/update/bulk/": { action: "state/bulk-update" },
 
   /***************************************************************************
    *                                                                          *
