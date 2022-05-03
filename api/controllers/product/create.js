@@ -28,6 +28,12 @@ module.exports = {
     category: {
       type: "number",
     },
+    inStock: {
+      type: "boolean",
+    },
+    slug: {
+      type: "string",
+    },
     state: {
       type: "number",
       required: true,
