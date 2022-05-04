@@ -35,6 +35,9 @@ module.exports = {
     slug: {
       type: "string",
     },
+    images: {
+      type: "json",
+    },
     state: {
       type: "number",
     },
