@@ -42,6 +42,10 @@ module.exports.routes = {
   "POST /states/create": { action: "state/create" },
   "POST /states/update/bulk/": { action: "state/bulk-update" },
 
+  //OTHERS
+  "GET /index/": { controller: "UploadController", action: "index" },
+  "POST /upload/": { controller: "UploadController", action: "upload" },
+
   /***************************************************************************
    *                                                                          *
    * More custom routes here...                                               *
