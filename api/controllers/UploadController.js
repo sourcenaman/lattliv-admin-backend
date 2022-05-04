@@ -25,13 +25,13 @@ module.exports = {
       },
       function (err, filesUploaded) {
         if (err) return res.serverError(err);
-        //let image = { Bucket: "lattliv", Key: filesUploaded[0].fd };
-        // s3Bucket.getSignedUrl("getObject", image, function (err, url) {
-        //   console.log("Image url is", url);
+        let image = { Bucket: "lattliv", Key: filesUploaded[0].fd, Expires: 129600 };
+        s3Bucket.getSignedUrl("getObject", image, function (err, url) {
+          console.log("Image url is", url);
           return res.ok({
-            files: filesUploaded,
+            url: url,
           });
-        // });
+         });
       }
     );
   },
