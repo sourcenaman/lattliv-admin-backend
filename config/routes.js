@@ -18,7 +18,7 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 
-  "/": { view: "pages/homepage" },
+  "/": { action: "index" },
 
   //PRODUCTS
   "GET /products/": { action: "product/view-all" },
@@ -27,8 +27,10 @@ module.exports.routes = {
   "POST /products/update/:id": { action: "product/update" },
 
   //USERS
-  "GET /users/": { action: "user/view-all" },
-  "POST /users/create": { action: "user/create" },
+  "GET /user/": { action: "user/view-all" },
+  "POST /user/register": { action: "user/register" },
+  "POST /user/login": { action: "user/login" },
+  "POST /user/reset-password": { action: "user/reset-password" },
 
   //CATEGORIES
   "GET /categories/": { action: "category/view-all" },

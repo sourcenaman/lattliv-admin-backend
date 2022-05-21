@@ -36,6 +36,9 @@ module.exports = {
       model: 'user',
       required: true,
     },
+    approvedBy: {
+      model: 'user'
+    },
     state: {
       model: 'state',
       required: true,
