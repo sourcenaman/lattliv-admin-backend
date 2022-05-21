@@ -31,9 +31,10 @@ module.exports = {
       // if there's nothing after "Bearer", no go
       if (!token) return exits.invalid()
       // if there is something, attempt to parse it as a JWT token
+      const secret = sails.config.jwtSecret || process.env.JWT_SECRET;
       return jwt.verify(
         token,
-        sails.config.jwtSecret,
+        secret,
         async function (err, payload) {
           if (err || !payload.sub) return exits.invalid();
           // console.log(payload.sub)
