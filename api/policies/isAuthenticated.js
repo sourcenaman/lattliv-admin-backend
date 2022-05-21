@@ -26,7 +26,7 @@ module.exports = async function (req, res, next) {
           return res.sendStatus(401);
         }
         // otherwise if this is an HTML-wanting browser, do a redirect.
-        return res.redirect("/user/");
+        return res.redirect("/user/login");
       },
       success: function () {
         // user has been attached to the req object (ie logged in) so we're set, they may proceed
