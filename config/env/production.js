@@ -139,7 +139,13 @@ module.exports = {
         "http://localhost:4200",
         "http://localhost:1337",
       ],
-      allowCredentials: true
+      allowCredentials: true,
+      headers: [
+        "secret",
+        "Content-Type",
+        "Access-Control-Allow-Origin",
+        "Authorization",
+      ],
     },
   },
 

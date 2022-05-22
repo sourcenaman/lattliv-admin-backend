@@ -39,7 +39,12 @@ module.exports.security = {
     //   origin: '*',
     //  credentials: true,
     //  methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
-    headers: ["secret", "Content-Type", "Access-Control-Allow-Origin"],
+    headers: [
+      "secret",
+      "Content-Type",
+      "Access-Control-Allow-Origin",
+      "Authorization",
+    ],
   },
 
   /****************************************************************************
