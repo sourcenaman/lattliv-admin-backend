@@ -18,6 +18,10 @@ module.exports = {
     phone: {
       type: "string",
     },
+    state: {
+      model: "state",
+      required: true
+    },
     password: {
       type: "string",
       required: true,
