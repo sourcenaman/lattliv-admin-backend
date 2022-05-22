@@ -133,9 +133,18 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allRoutes: true,
+      allowOrigins: [
+        "http://localhost:3000",
+        "http://localhost:4200",
+        "http://localhost:1337",
+      ],
+      allowCredentials: true,
+      // allowCredentials: false,
+      //   origin: '*',
+      //  credentials: true,
+      //  methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+      headers: ["secret", "Content-Type", "Access-Control-Allow-Origin"],
     },
   },
 
@@ -225,10 +234,7 @@ module.exports = {
      * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
      *                                                                          *
      ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+    onlyAllowOrigins: ["https://example.com", "https://staging.example.com"],
     /***************************************************************************
      *                                                                          *
      * If you are deploying a cluster of multiple servers and/or processes,     *
