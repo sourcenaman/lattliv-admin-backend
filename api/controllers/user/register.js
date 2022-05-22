@@ -23,6 +23,9 @@ module.exports = {
       type: "json",
       required: true
     },
+    phone: {
+      type: "string"
+    },
   },
 
   exits: {
@@ -42,12 +45,8 @@ module.exports = {
   fn: async function (inputs) {
     // All done.
     const newEmailAddress = inputs.email.toLowerCase();
-    let newUser = await User.create({
-      name: inputs.name,
-      email: newEmailAddress,
-      password: inputs.password,
-      access: inputs.access
-    }).fetch();
+    inputs["email"] = newEmailAddress;
+    let newUser = await User.create(inputs).fetch();
     return newUser;
   },
 };
