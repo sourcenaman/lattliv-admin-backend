@@ -27,7 +27,8 @@ module.exports.routes = {
   "POST /products/update/:id": { action: "product/update" },
 
   //USERS
-  "GET /user/:id": { action: "user/view-all" },
+  "GET /user/": { action: "user/view-all" },
+  "GET /user/:id": { action: "user/view-one" },
   "POST /user/update/:id": { action: "user/update" },
   "POST /user/register": { action: "user/register" },
   "POST /user/login": { action: "user/login" },
