@@ -60,6 +60,8 @@ module.exports = {
       }); 
     }
     let newUser = await User.create(inputs).fetch();
-    return newUser;
+    return exits.success({
+      newUser
+    });
   },
 };
