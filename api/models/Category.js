@@ -19,29 +19,32 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     name: {
-      type: 'string',
+      type: "string",
       required: true,
     },
     desc: {
-      type: 'string',
+      type: "string",
     },
     parent: {
-      model: 'category',
+      model: "category",
     },
     children: {
-      collection: 'category',
-      via: 'parent',
+      collection: "category",
+      via: "parent",
     },
     createdBy: {
-      model: 'user',
+      model: "user",
       required: true,
     },
     approvedBy: {
-      model: 'user'
+      model: "user",
     },
     state: {
-      model: 'state',
+      model: "state",
       required: true,
+    },
+    seo: {
+      type: "json",
     },
   },
 };

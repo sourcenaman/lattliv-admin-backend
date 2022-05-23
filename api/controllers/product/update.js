@@ -35,6 +35,9 @@ module.exports = {
     slug: {
       type: "string",
     },
+    seo: {
+      type: "json",
+    },
     images: {
       type: "json",
     },

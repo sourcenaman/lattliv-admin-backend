@@ -24,6 +24,9 @@ module.exports = {
       type: "number",
       required: true,
     },
+    seo: {
+      type: "json",
+    },
   },
 
   exits: {},
