@@ -14,7 +14,7 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    var users = await User.find().sort("id DESC");
+    var users = await User.find( { state: { "!=": 3 }} ).sort("id DESC");
     return users ? exits.success(users) : exits.notFound({ error: `User with ID ${inputs.id} not found.` });
   }
 };
