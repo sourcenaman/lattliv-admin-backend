@@ -27,33 +27,33 @@ module.exports.security = {
    *                                                                          *
    ***************************************************************************/
 
-  // cors: {
-  //   allRoutes: true,
-  //   allowOrigins: [
-  //     "http://localhost:3000",
-  //     "http://localhost:4200",
-  //     "http://localhost:1337",
-  //     "http://65.2.126.231:3000",
-  //   ],
-  //   allowCredentials: true,
-  //   // allowCredentials: false,
-  //   //   origin: '*',
-  //   //  credentials: true,
-  //   //  methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
-  //   allowRequestHeaders: [
-  //     "secret",
-  //     "Content-Type",
-  //     "Access-Control-Allow-Origin",
-  //     "Authorization",
-  //   ],
-  // },
-
   cors: {
     allRoutes: true,
-    allowOrigins: "*",
-    allowCredentials: false,
-    allowRequestHeaders: "*"
+    allowOrigins: [
+      "http://localhost:3000",
+      "http://localhost:4200",
+      "http://localhost:1337",
+      "http://65.2.126.231:3000",
+    ],
+    allowCredentials: true,
+    // allowCredentials: false,
+    //   origin: '*',
+    //  credentials: true,
+    //  methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+    allowRequestHeaders: [
+      "secret",
+      "Content-Type",
+      "Access-Control-Allow-Origin",
+      "Authorization",
+    ],
   },
+
+  // cors: {
+  //   allRoutes: true,
+  //   allowOrigins: "*",
+  //   allowCredentials: false,
+  //   allowRequestHeaders: "*"
+  // },
 
   /****************************************************************************
    *                                                                           *
