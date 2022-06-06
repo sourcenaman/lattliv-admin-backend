@@ -34,6 +34,7 @@ module.exports.security = {
       "http://localhost:4200",
       "http://localhost:1337",
       "http://65.2.126.231:3000",
+      "http://65.2.126.231",
     ],
     allowCredentials: true,
     // allowCredentials: false,
