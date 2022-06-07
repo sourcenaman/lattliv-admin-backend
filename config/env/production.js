@@ -138,14 +138,10 @@ module.exports = {
         "http://localhost:3000",
         "http://localhost:4200",
         "http://localhost:1337",
+        "https://admin.pratapindustries.in",
       ],
       allowCredentials: true,
-      headers: [
-        "secret",
-        "Content-Type",
-        "Access-Control-Allow-Origin",
-        "Authorization",
-      ],
+      allowRequestHeaders: "*",
     },
   },
 
