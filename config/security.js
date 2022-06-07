@@ -33,9 +33,7 @@ module.exports.security = {
       "http://localhost:3000",
       "http://localhost:4200",
       "http://localhost:1337",
-      "http://65.2.126.231:3000",
-      "http://65.2.126.231",
-      "https://d49f-103-61-110-234.in.ngrok.io",
+      "https://admin.pratapindustries.in"
     ],
     allowCredentials: true,
     // allowCredentials: false,
