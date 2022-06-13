@@ -47,6 +47,11 @@ module.exports.routes = {
   "POST /states/create": { action: "state/create" },
   "POST /states/update/bulk/": { action: "state/bulk-update" },
 
+  //TRASH
+  "GET /trash/": { action: "trash/get-trash" },
+  "PATCH /trash/": { action: "trash/restore-trash" },
+  "DELETE /trash/": { action: "trash/delete-trash" },
+
   //OTHERS
   "GET /index/": { controller: "UploadController", action: "index" },
   "POST /upload/": { controller: "UploadController", action: "upload" },
