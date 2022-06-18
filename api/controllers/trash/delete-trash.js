@@ -3,25 +3,47 @@ module.exports = {
 
   description: "View product.",
 
-  inputs: {},
+  inputs: {
+    data: {
+      type: ["ref"],
+      required: true,
+    },
+  },
 
-  exits: {},
+  exits: {
+    invalid: {
+      statusCode: 400,
+    },
+    notFound: {
+      statusCode: 404,
+    },
+    success: {
+      statusCode: 200,
+    },
+  },
 
-  fn: async function () {
-    products = await Product.find({
-      select: ["id", "name"],
-      where: { state: 3 },
-    });
-    for (const product of products) {
-      product["type"] = "product";
+  fn: async function (inputs, exits) {
+    let data = inputs.data;
+    let items = [];
+    let types = {
+      product: Product,
+      category: Category,
+    };
+    for (var obj of data) {
+      if ("id" in obj && "type" in obj && obj.type in types) {
+        let modelName = types[obj.type];
+        var fetch = await modelName.findOne({ id: obj.id });
+        if (fetch && fetch.state == 3) {
+          var resp = await modelName.archiveOne({ id: obj.id });
+          items.push({ id: obj.id, type: obj.type, message: "Deleted" });
+        } else
+          items.push({ id: obj.id, type: obj.type, message: "Not in trash." });
+      } else {
+        return exits.invalid({
+          message: "ID or Type missing or Incorrect type",
+        });
+      }
     }
-    categories = await Category.find({
-      select: ["id", "name"],
-      where: { state: 3 },
-    });
-    for (const category of categories) {
-      category["type"] = "category";
-    }
-    return products.concat(categories);
+    return exits.success(items);
   },
 };

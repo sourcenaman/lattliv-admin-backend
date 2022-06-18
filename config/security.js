@@ -26,26 +26,6 @@ module.exports.security = {
    * https://sailsjs.com/docs/concepts/security/cors                          *
    *                                                                          *
    ***************************************************************************/
-  // cors: {
-  //   allRoutes: true,
-  //   allowOrigins: [
-  //     "http://localhost:3000",
-  //     "http://localhost:4200",
-  //     "http://localhost:1337",
-  //     "https://admin.pratapindustries.in"
-  //   ],
-  //   allowCredentials: true,
-  //   // allowCredentials: false,
-  //   //   origin: '*',
-  //   //  credentials: true,
-  //   //  methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
-  //   allowRequestHeaders: [
-  //     "secret",
-  //     "Content-Type",
-  //     "Access-Control-Allow-Origin",
-  //     "Authorization",
-  //   ],
-  // },
 
   cors: {
     allRoutes: true,
