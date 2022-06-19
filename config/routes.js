@@ -54,6 +54,7 @@ module.exports.routes = {
 
   //TRASH
   "GET /store/": { action: "store/view" },
+  "GET /store/:id": { action: "store/view" },
   "POST /store/": { action: "store/create" },
   "PATCH /store/": { action: "store/update" },
   "DELETE /store/": { action: "store/delete" },
