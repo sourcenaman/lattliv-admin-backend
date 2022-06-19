@@ -34,7 +34,7 @@ module.exports = {
         let modelName = types[obj.type];
         var fetch = await modelName.findOne({ id: obj.id });
         if (fetch && fetch.state == 3) {
-          var resp = await modelName.archiveOne({ id: obj.id });
+          var resp = await modelName.destroyOne({ id: obj.id });
           items.push({ id: obj.id, type: obj.type, message: "Deleted" });
         } else
           items.push({ id: obj.id, type: obj.type, message: "Not in trash." });
