@@ -48,6 +48,9 @@ module.exports = {
       model: "user",
       required: true,
     },
+    deletedBy: {
+      model: "user",
+    },
     specification: {
       type: "json",
     },

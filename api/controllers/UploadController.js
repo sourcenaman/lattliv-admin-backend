@@ -1,6 +1,6 @@
 var aws_module = require('aws-sdk');
 aws_module.config.loadFromPath('aws_config.json');
-var s3Bucket = new aws_module.S3({ params: { Bucket: "lattliv" } });
+var s3Bucket = new aws_module.S3({ params: { Bucket: "lattliv", ACL: 'public-read' } });
 module.exports = {
   index: function (req, res) {
     res.writeHead(200, { "content-type": "text/html" });
@@ -13,6 +13,7 @@ module.exports = {
     );
   },
   upload: async function (req, res) {
+    console.log("I am in")
     req.file("myFile").upload(
       {
         adapter: require("skipper-s3"),
@@ -24,14 +25,13 @@ module.exports = {
         },
       },
       function (err, filesUploaded) {
+        console.log("Upload successful")
         if (err) return res.serverError(err);
-        let image = { Bucket: "lattliv", Key: filesUploaded[0].fd, Expires: 129600 };
-        s3Bucket.getSignedUrl("getObject", image, function (err, url) {
-          console.log("Image url is", url);
-          return res.ok({
-            url: url,
-          });
-         });
+        let image = filesUploaded[0].fd;
+        console.log(image)
+        let url = "https://lattliv.s3.amazonaws.com/";
+        let resp = { url: url + image }
+        return res.ok(resp)
       }
     );
   },

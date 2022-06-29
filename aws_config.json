@@ -1,5 +1,6 @@
 {
 "accessKeyId": "AKIA3BFT7BW6OBUZO7VK", 
 "secretAccessKey": "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", 
-"region": "us-east-1"
+"region": "us-east-1",
+"Bucket": "lattliv"
 }

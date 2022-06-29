@@ -39,6 +39,9 @@ module.exports = {
     approvedBy: {
       model: "user",
     },
+    deletedBy: {
+      model: "user",
+    },
     state: {
       model: "state",
       required: true,
