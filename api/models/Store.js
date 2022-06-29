@@ -41,7 +41,7 @@ module.exports = {
       type: "string",
     },
     image: {
-      type: "string",
+      type: "json",
     },
     timings: {
       type: "string",

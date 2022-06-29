@@ -46,6 +46,9 @@ module.exports = {
     seo: {
       type: "json",
     },
+    image: {
+      type: "json",
+    },
   },
 };
 
