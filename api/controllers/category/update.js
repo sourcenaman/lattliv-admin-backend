@@ -6,25 +6,28 @@ module.exports = {
   inputs: {
     id: {
       type: "number",
-      required: true
+      required: true,
     },
     name: {
-      type: "string"
+      type: "string",
     },
     desc: {
-      type: "string"
+      type: "string",
     },
     parent: {
-      type: "number"
+      type: "number",
     },
     createdBy: {
-      type: "number"
+      type: "number",
     },
     state: {
-      type: "number"
+      type: "number",
     },
     seo: {
-      type: "json"
+      type: "json",
+    },
+    image: {
+      type: "json",
     },
   },
 
