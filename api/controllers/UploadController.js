@@ -13,7 +13,6 @@ module.exports = {
     );
   },
   upload: async function (req, res) {
-    console.log("I am in")
     req.file("myFile").upload(
       {
         adapter: require("skipper-s3"),
@@ -25,10 +24,8 @@ module.exports = {
         },
       },
       function (err, filesUploaded) {
-        console.log("Upload successful")
         if (err) return res.serverError(err);
         let image = filesUploaded[0].fd;
-        console.log(image)
         let url = "https://lattliv.s3.amazonaws.com/";
         let resp = { url: url + image }
         return res.ok(resp)
