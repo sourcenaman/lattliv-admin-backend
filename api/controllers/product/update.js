@@ -44,9 +44,6 @@ module.exports = {
     state: {
       type: "number",
     },
-    createdBy: {
-      type: "number",
-    },
   },
 
   exits: {},

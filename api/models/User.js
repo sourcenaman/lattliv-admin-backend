@@ -51,7 +51,7 @@ module.exports = {
     },
   },
   customToJSON: function () {
-    return _.omit(this, ["password"]);
+    return _.omit(this, ["password", "token"]);
   },
   beforeCreate: async function (values, proceed) {
     // Hash password
