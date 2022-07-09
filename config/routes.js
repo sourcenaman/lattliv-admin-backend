@@ -63,6 +63,8 @@ module.exports.routes = {
   "GET /index/": { controller: "UploadController", action: "index" },
   "POST /upload/": { controller: "UploadController", action: "upload" },
 
+  "GET /bulk/": { action: "product/insert-bulk" },
+
   /***************************************************************************
    *                                                                          *
    * More custom routes here...                                               *

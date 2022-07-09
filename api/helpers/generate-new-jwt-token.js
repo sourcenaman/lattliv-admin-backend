@@ -6,7 +6,15 @@ module.exports = {
   description: "",
 
   inputs: {
-    subject: {
+    id: {
+      type: "number",
+      required: true,
+    },
+    email: {
+      type: "string",
+      required: true,
+    },
+    curr_time: {
       type: "string",
       required: true,
     },
@@ -20,11 +28,12 @@ module.exports = {
 
   fn: async function (inputs) {
     const payload = {
-      sub: inputs.subject, // subject
-      iss: "LogRocket Sails API", // issuer
+      id: inputs.id,
+      email: inputs.email,
+      timestamp: inputs.curr_time
     };
     const secret = sails.config.jwtSecret || sails.config.custom.jwtSecret;
-    const token = jwt.sign(payload, secret, { expiresIn: "1d" });
+    const token = jwt.sign(payload, secret, { expiresIn: "999y" });
     return token;
   },
 };

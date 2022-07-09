@@ -36,12 +36,13 @@ module.exports = {
         token,
         secret,
         async function (err, payload) {
-          if (err || !payload.sub) return exits.invalid();
-          // console.log(payload.sub)
-          // var user = await User.findOne({email: payload.sub});
-          //if (!user) return exits.invalid();
-          // if it got this far, everything checks out, success
-          //req.user = user;
+          var token = await User.findOne({
+            where: { id: payload.id },
+            select: ['email', 'token']
+          })
+          if (err || !payload.id || !payload.email || !token || payload.id != token.id || payload.email != token.email || payload.timestamp != token.token){
+            return exits.invalid();
+          }
           return exits.success();
         }
       );

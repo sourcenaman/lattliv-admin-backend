@@ -33,8 +33,10 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
-    console.log("I am in")
-    const user = await User.findOne({ email: inputs.email });
+    const user = await User.findOne({
+      where: { email: inputs.email },
+      select: ["name", "email", "access", "phone", "password"],
+    });
     if (!user) {
       return exits.notAUser({
         error: `An account belonging to ${inputs.email} was not found`,
@@ -45,8 +47,15 @@ module.exports = {
       .intercept("incorrect", (error) => {
         exits.passwordMismatch({ error: error.message });
       });
-    const token = await sails.helpers.generateNewJwtToken(user.email);
+    let curr_time = Math.round(new Date().getTime() / 1000);
+    const token = await sails.helpers.generateNewJwtToken(user.id, user.email, curr_time);
     this.req.me = user;
+    session_data = {
+      user: user.id,
+      headers: this.req.headers
+    }
+    await Session.create(session_data);
+    await User.updateOne({ id: user.id }).set({ token: curr_time });
     return exits.success({
       message: `${user.email} has been logged in`,
       data: user,

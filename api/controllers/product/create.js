@@ -12,33 +12,42 @@ module.exports = {
     },
     name: {
       type: "string",
+      required: true,
     },
     shortDesc: {
       type: "string",
+      required: true,
     },
     longDesc: {
       type: "string",
+      required: true,
     },
     price: {
       type: "number",
+      required: true,
     },
     specification: {
       type: "json",
+      required: true,
     },
     category: {
       type: "number",
+      required: true,
     },
     inStock: {
       type: "boolean",
+      required: true,
     },
     slug: {
       type: "string",
+      required: true,
     },
     seo: {
       type: "json",
     },
     images: {
       type: "json",
+      required: true,
     },
     state: {
       type: "number",

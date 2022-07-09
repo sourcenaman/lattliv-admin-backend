@@ -20,7 +20,7 @@ module.exports = {
     },
     state: {
       model: "state",
-      required: true
+      required: true,
     },
     password: {
       type: "string",
@@ -28,7 +28,10 @@ module.exports = {
     },
     access: {
       type: "json",
-      required: true
+      required: true,
+    },
+    token: {
+      type: "string",
     },
     products_created: {
       collection: "product",
@@ -52,8 +55,21 @@ module.exports = {
   },
   beforeCreate: async function (values, proceed) {
     // Hash password
-    const hashedPassword = await sails.helpers.passwords.hashPassword(values.password);
+    const hashedPassword = await sails.helpers.passwords.hashPassword(
+      values.password
+    );
     values.password = hashedPassword;
+    return proceed();
+  },
+  beforeUpdate: async function (values, proceed) {
+    // Hash password
+    if (values.password){
+      const hashedPassword = await sails.helpers.passwords.hashPassword(
+        values.password
+      );
+      values.token = ""
+      values.password = hashedPassword;
+    }
     return proceed();
   },
 };
