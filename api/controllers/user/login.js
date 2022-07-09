@@ -49,7 +49,7 @@ module.exports = {
       });
     let curr_time = Math.round(new Date().getTime() / 1000);
     const token = await sails.helpers.generateNewJwtToken(user.id, user.email, curr_time);
-    this.req.me = user;
+    this.req.session.user = user;
     session_data = {
       user: user.id,
       headers: this.req.headers

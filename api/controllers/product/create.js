@@ -52,16 +52,16 @@ module.exports = {
     state: {
       type: "number",
       required: true,
-    },
-    createdBy: {
-      type: "number",
-      required: true,
-    },
+    }
   },
 
   exits: {},
 
   fn: async function (inputs) {
+    user = this.req.session.user
+    if (inputs.state == 1 || inputs.state == 6){
+      inputs["createdBy"] = user.id
+    }
     var product = await Product.create(inputs).fetch();
     return product;
   },

@@ -53,6 +53,10 @@ module.exports = {
 
   fn: async function (inputs) {
     // All done.
+    user = this.req.session.user
+    if (inputs.state == 2) {
+      inputs["approvedBy"] = user.id;
+    }
     var product = await Product.updateOne({ id: inputs.id }).set(inputs);
     return product;
   },

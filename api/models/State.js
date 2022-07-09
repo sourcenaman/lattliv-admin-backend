@@ -21,7 +21,7 @@ module.exports = {
 
     name: {
       type: 'string',
-      isIn: ['saved', 'published', 'trashed', 'hidden', 'deleted', 'review'],
+      isIn: ['saved', 'published', 'trashed', 'hidden', 'review'],
       unique: true
     },
     products: {
