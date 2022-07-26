@@ -8,17 +8,14 @@ module.exports = {
   inputs: {
     name: {
       type: "string",
-      required: true,
+      required: true
     },
     desc: {
       type: "string",
+      required: true,
     },
     parent: {
       type: "number",
-    },
-    createdBy: {
-      type: "number",
-      required: true,
     },
     state: {
       type: "number",
@@ -29,13 +26,45 @@ module.exports = {
     },
     image: {
       type: "json",
-    }
+      required: true,
+    },
   },
 
-  exits: {},
+  exits: {
+    stateNotAllowed: {
+      statusCode: 400,
+      description: "Status not allowed before save or review.",
+    },
+    alreadyExist: {
+      statusCode: 409,
+      description: "Category with same name already exist.",
+    },
+    er: {
+      statusCode: 500,
+      description: "Custom error.",
+    },
+    created: {
+      statusCode: 201,
+      description: "Category created",
+    },
+  },
 
-  fn: async function (inputs) {
-    var category = await Category.create(inputs).fetch();
-    return category;
+  fn: async function (inputs, exits) {
+    user = this.req.session.user;
+    if (inputs.state == 1 || inputs.state == 6) {
+      inputs["createdBy"] = user.id;
+    } else {
+      exits.stateNotAllowed({
+        error: "Status not allowed. Allowed status Save(1) or Review(6)",
+      });
+    }
+    await Category.create(inputs)
+      .intercept("E_UNIQUE", () => {
+        exits.alreadyExist({ error: "Name already exist." });
+      })
+      .intercept(() => {
+        exits.er({ error: "Something went wrong." });
+      });
+    exits.created({ message: "Created" });
   },
 };
