@@ -1,5 +1,3 @@
-//const User = require('../../models/User');
-
 module.exports = {
   friendlyName: "Create",
 
@@ -52,18 +50,60 @@ module.exports = {
     state: {
       type: "number",
       required: true,
-    }
+    },
   },
 
-  exits: {},
+  exits: {
+    stateNotAllowed: {
+      statusCode: 400,
+      description: "Status not allowed before save or review.",
+    },
+    alreadyExist: {
+      statusCode: 409,
+      description: "Product with same name/sku/slug already exist.",
+    },
+    notFound: {
+      statusCode: 404,
+      description: "Not found"
+    },
+    er: {
+      statusCode: 500,
+      description: "Custom error.",
+    },
+    created: {
+      statusCode: 201,
+      description: "Product created",
+    },
+  },
 
-  fn: async function (inputs) {
-    user = this.req.session.user
-    if (inputs.state == 1 || inputs.state == 6){
-      inputs["createdBy"] = user.id
+  fn: async function (inputs, exits) {
+    user = this.req.session.user;
+    if (inputs.state == 1 || inputs.state == 6) {
+      inputs["createdBy"] = user.id;
+    } else {
+      exits.stateNotAllowed({
+        error: "Status not allowed. Allowed status Save(1) or Review(6)",
+      });
     }
-    var product = await Product.create(inputs).fetch();
-    return product;
+    var category = await Category.find({ id: inputs.category });
+    if (!category){
+      exits.notFound({ error: "Subcategory not found." })
+    }
+    else if (!category.parent){
+      exits.er({ error: "Product can be mapped to a subcategory, not category." })
+    }
+    else if (category.state != 2){
+      exits.er({ error: "Please select a published subcategory." })
+    }
+    return true
+    await Product.create(inputs)
+      .intercept("E_UNIQUE", () => {
+        exits.alreadyExist({ error: "Name already exist." });
+      })
+      .intercept(() => {
+        exits.er({ error: "Something went wrong." });
+      });
+    exits.created({ message: "Created" });
   },
 };
 
