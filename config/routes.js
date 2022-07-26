@@ -52,12 +52,16 @@ module.exports.routes = {
   "PATCH /trash/": { action: "trash/restore-trash" },
   "DELETE /trash/": { action: "trash/delete-trash" },
 
-  //TRASH
+  //STORE
   "GET /store/": { action: "store/view" },
   "GET /store/:id": { action: "store/view" },
   "POST /store/": { action: "store/create" },
   "PATCH /store/": { action: "store/update" },
   "DELETE /store/": { action: "store/delete" },
+
+  //BANNER
+  "GET /banner/": { action: "banner/view" },
+  "POST /banner/": { action: "banner/create" },
 
   //OTHERS
   "GET /index/": { controller: "UploadController", action: "index" },
