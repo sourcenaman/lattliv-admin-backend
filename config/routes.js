@@ -59,6 +59,13 @@ module.exports.routes = {
   "PATCH /store/": { action: "store/update" },
   "DELETE /store/": { action: "store/delete" },
 
+  //TAG
+  "GET /tag/": { action: "tag/view" },
+  "GET /tag/:id": { action: "tag/view" },
+  "POST /tag/": { action: "tag/create" },
+  "PATCH /tag/": { action: "tag/update" },
+  "DELETE /tag/": { action: "tag/delete" },
+
   //BANNER
   "GET /banner/": { action: "banner/view" },
   "POST /banner/": { action: "banner/create" },

@@ -21,14 +21,6 @@ module.exports = {
 
     name: {
       type: "string",
-      isIn: [
-        "somesection1",
-        "somesection2",
-        "somesection3",
-        "somesection4",
-        "somesection5",
-        "somesection6",
-      ],
       unique: true,
     },
     products: {
