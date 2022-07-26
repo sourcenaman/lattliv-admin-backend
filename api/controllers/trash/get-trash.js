@@ -20,7 +20,12 @@ module.exports = {
       where: { state: 3 },
     });
     for (const category of categories){
-      category['type'] = 'category'
+      if (category.parent){
+        category["type"] = "subcategory";
+      }
+      else{
+        category['type'] = 'category'
+      }
     }
     return products.concat(categories);
   },
