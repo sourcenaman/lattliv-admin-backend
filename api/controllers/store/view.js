@@ -27,7 +27,7 @@ module.exports = {
         return exits.notFound({ "error": "Store not found" })
     }
     else{
-      var stores = await Store.find();
+      var stores = await Store.find().sort("id DESC");
       return exits.success(stores);
     }
   },
