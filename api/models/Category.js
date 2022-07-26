@@ -23,9 +23,6 @@ module.exports = {
       required: true,
       unique: true
     },
-    desc: {
-      type: "string",
-    },
     parent: {
       model: "category",
     },

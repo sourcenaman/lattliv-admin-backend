@@ -1,5 +1,3 @@
-//const User = require('../../models/User');
-
 module.exports = {
   friendlyName: "Create",
 
@@ -9,10 +7,6 @@ module.exports = {
     name: {
       type: "string",
       required: true
-    },
-    desc: {
-      type: "string",
-      required: true,
     },
     parent: {
       type: "number",
