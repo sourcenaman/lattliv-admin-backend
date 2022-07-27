@@ -32,10 +32,10 @@ module.exports = {
   fn: async function (inputs, exits) {
     await Comic.create(inputs)
       .intercept("E_UNIQUE", () => {
-        exits.alreadyExist({ error: "Name already exist." });
+        exits.alreadyExist({ message: "Name already exist." });
       })
       .intercept(() => {
-        exits.er({ error: "Something went wrong." });
+        exits.er({ message: "Something went wrong." });
       });
     exits.created({ message: "Created" });
   },

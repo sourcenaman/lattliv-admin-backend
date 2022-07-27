@@ -23,7 +23,7 @@ module.exports = {
       var comic = await Comic.findOne({ id: inputs.id }).populate("section");
       if (comic) {
         return exits.success(comic);
-      } else return exits.notFound({ error: "Comic not found" });
+      } else return exits.notFound({ message: "Comic not found" });
     } else {
       var comics = await Comic.find().populate("section").sort("id DESC");
       return exits.success(comics);

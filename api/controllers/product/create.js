@@ -82,25 +82,25 @@ module.exports = {
       inputs["createdBy"] = user.id;
     } else {
       exits.stateNotAllowed({
-        error: "Status not allowed. Allowed status Save(1) or Review(6)",
+        message: "Status not allowed. Allowed status Save(1) or Review(6)",
       });
     }
     var category = await Category.findOne({ id: inputs.category });
     if (!category){
-      exits.notFound({ error: "Subcategory not found." })
+      exits.notFound({ message: "Subcategory not found." })
     }
     else if (!category.parent){
-      exits.er({ error: "Product can be mapped to a subcategory, not category." })
+      exits.er({ message: "Product can be mapped to a subcategory, not category." })
     }
     else if (category.state != 2){
-      exits.er({ error: "Please select a published subcategory." })
+      exits.er({ message: "Please select a published subcategory." })
     }
     await Product.create(inputs)
       .intercept("E_UNIQUE", () => {
-        exits.alreadyExist({ error: "Name already exist." });
+        exits.alreadyExist({ message: "Name already exist." });
       })
       .intercept(() => {
-        exits.er({ error: "Something went wrong." });
+        exits.er({ message: "Something went wrong." });
       });
     exits.created({ message: "Created" });
   },

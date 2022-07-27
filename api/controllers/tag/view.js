@@ -32,7 +32,7 @@ module.exports = {
         }
         return exits.success(data); 
       }
-      else return exits.notFound({ error: "Tag not found" });
+      else return exits.notFound({ message: "Tag not found" });
     } else {
       var tags = await Tag.find().sort("id DESC");
       return exits.success(tags);

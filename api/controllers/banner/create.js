@@ -27,11 +27,11 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     if (inputs.images.length > 5) {
-      exits.notAllowed({ error: "Images more than 5 are not allowed." });
+      exits.notAllowed({ message: "Images more than 5 are not allowed." });
     }
     await Banner.destroy({})
     await Banner.create(inputs).intercept(() => {
-      exits.er({ error: "Something went wrong." });
+      exits.er({ message: "Something went wrong." });
     });
     exits.created({ message: "Created" });
   },

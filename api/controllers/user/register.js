@@ -44,10 +44,7 @@ module.exports = {
     stateError: {
       statusCode: 406,
       description: "The given state is not allowed"
-    },
-    error: {
-      description: "Something went wrong",
-    },
+    }
   },
 
   fn: async function (inputs, exits) {
@@ -56,7 +53,7 @@ module.exports = {
     inputs["email"] = newEmailAddress;
     if (inputs.state != 2){ 
       return exits.stateError({
-        error: `State ${inputs.state} is not allowed`,
+        message: `State ${inputs.state} is not allowed`,
       }); 
     }
     let newUser = await User.create(inputs).fetch();

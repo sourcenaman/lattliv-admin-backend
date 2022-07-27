@@ -37,10 +37,10 @@ module.exports = {
   fn: async function (inputs, exits) {
     var section = await Section.create(inputs)
       .intercept("E_UNIQUE", () => {
-        exits.alreadyExist({ error: "Name already exist." });
+        exits.alreadyExist({ message: "Name already exist." });
       })
       .intercept(() => {
-        exits.er({ error: "Something went wrong." });
+        exits.er({ message: "Something went wrong." });
       })
       .fetch();
     // if(inputs.comics){

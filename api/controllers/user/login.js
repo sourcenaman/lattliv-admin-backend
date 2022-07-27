@@ -39,13 +39,13 @@ module.exports = {
     });
     if (!user) {
       return exits.notAUser({
-        error: `An account belonging to ${inputs.email} was not found`,
+        message: `An account belonging to ${inputs.email} was not found`,
       });
     }
     await sails.helpers.passwords
       .checkPassword(inputs.password, user.password)
       .intercept("incorrect", (error) => {
-        exits.passwordMismatch({ error: error.message });
+        exits.passwordMismatch({ message: error.message });
       });
     let curr_time = Math.round(new Date().getTime() / 1000);
     const token = await sails.helpers.generateNewJwtToken(user.id, user.email, curr_time);

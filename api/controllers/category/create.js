@@ -49,15 +49,15 @@ module.exports = {
       inputs["createdBy"] = user.id;
     } else {
       exits.stateNotAllowed({
-        error: "Status not allowed. Allowed status Save(1) or Review(6)",
+        message: "Status not allowed. Allowed status Save(1) or Review(6)",
       });
     }
     await Category.create(inputs)
       .intercept("E_UNIQUE", () => {
-        exits.alreadyExist({ error: "Name already exist." });
+        exits.alreadyExist({ message: "Name already exist." });
       })
       .intercept(() => {
-        exits.er({ error: "Something went wrong." });
+        exits.er({ message: "Something went wrong." });
       });
     exits.created({ message: "Created" });
   },

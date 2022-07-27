@@ -38,10 +38,10 @@ module.exports = {
     }
     var tag = await Tag.create({ name: inputs.name })
     .intercept("E_UNIQUE", () => {
-        exits.alreadyExist({ error: "Name already exist." });
+        exits.alreadyExist({ message: "Name already exist." });
     })
     .intercept(() => {
-        exits.er({ error: "Something went wrong." });
+        exits.er({ message: "Something went wrong." });
     })
     .fetch();
     await Tag.addToCollection(tag.id, "products", data.products);
