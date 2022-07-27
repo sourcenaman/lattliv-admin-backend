@@ -80,6 +80,11 @@ module.exports.routes = {
   "PATCH /section/:id": { action: "section/update" },
   "DELETE /section/": { action: "section/delete" },
 
+  //LEAD
+  "GET /lead/": { action: "lead/view" },
+  "POST /lead/": { action: "lead/create" },
+  "PATCH /lead/:id": { action: "lead/update" },
+
   //BANNER
   "GET /banner/": { action: "banner/view" },
   "POST /banner/": { action: "banner/create" },
