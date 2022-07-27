@@ -49,28 +49,28 @@ module.exports.routes = {
 
   //TRASH
   "GET /trash/": { action: "trash/get-trash" },
-  "PATCH /trash/": { action: "trash/restore-trash" },
+  "PATCH /trash/:id": { action: "trash/restore-trash" },
   "DELETE /trash/": { action: "trash/delete-trash" },
 
   //STORE
   "GET /store/": { action: "store/view" },
   "GET /store/:id": { action: "store/view" },
   "POST /store/": { action: "store/create" },
-  "PATCH /store/": { action: "store/update" },
+  "PATCH /store/:id": { action: "store/update" },
   "DELETE /store/": { action: "store/delete" },
 
   //TAG
   "GET /tag/": { action: "tag/view" },
   "GET /tag/:id": { action: "tag/view" },
   "POST /tag/": { action: "tag/create" },
-  "PATCH /tag/": { action: "tag/update" },
+  "PATCH /tag/:id": { action: "tag/update" },
   "DELETE /tag/": { action: "tag/delete" },
 
   //COMIC
   "GET /comic/": { action: "comic/view" },
   "GET /comic/:id": { action: "comic/view" },
   "POST /comic/": { action: "comic/create" },
-  "PATCH /comic/": { action: "comic/update" },
+  "PATCH /comic/:id": { action: "comic/update" },
   "DELETE /comic/": { action: "comic/delete" },
 
   //BANNER
