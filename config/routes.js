@@ -73,6 +73,13 @@ module.exports.routes = {
   "PATCH /comic/:id": { action: "comic/update" },
   "DELETE /comic/": { action: "comic/delete" },
 
+  //SECTION
+  "GET /section/:type": { action: "section/view" },
+  "GET /section/:type/:id": { action: "section/view" },
+  "POST /section/": { action: "section/create" },
+  "PATCH /section/:id": { action: "section/update" },
+  "DELETE /section/": { action: "section/delete" },
+
   //BANNER
   "GET /banner/": { action: "banner/view" },
   "POST /banner/": { action: "banner/create" },

@@ -26,6 +26,10 @@ module.exports = {
     products: {
       collection: "product",
       via: "tags",
+    },
+    section: {
+      collection: "section",
+      via: "tag"
     }
   },
 };
