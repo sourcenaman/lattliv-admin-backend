@@ -35,9 +35,15 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
-    var section = await Section.create(inputs)
-      .intercept("E_UNIQUE", () => {
-        exits.alreadyExist({ message: "Name already exist." });
+    await Section.create(inputs)
+      .intercept("E_UNIQUE", (err) => {
+        console.log(err)
+        if (err.attrNames[0] == 'tag'){
+          exits.alreadyExist({ message: "This tag is already linked to a section." });
+        }
+        else{
+          exits.alreadyExist({ message: "Name already exist." });
+        }
       })
       .intercept(() => {
         exits.er({ message: "Something went wrong." });
