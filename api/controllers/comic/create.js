@@ -8,6 +8,10 @@ module.exports = {
       type: "string",
       required: true,
     },
+    type: {
+      type: "string",
+      required: true,
+    },
     images: {
       type: "json",
       required: true,

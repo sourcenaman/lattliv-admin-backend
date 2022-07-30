@@ -28,6 +28,9 @@ module.exports = {
       type: "json",
       required: true,
     },
+    type: {
+      type: "string",
+    },
     section: {
       model: "section"
     }

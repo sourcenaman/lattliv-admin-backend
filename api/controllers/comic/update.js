@@ -11,6 +11,9 @@ module.exports = {
     name: {
       type: "string",
     },
+    type: {
+      type: "string",
+    },
     images: {
       type: "json",
     },
