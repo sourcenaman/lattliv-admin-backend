@@ -38,6 +38,9 @@ module.exports = {
     seo: {
       type: "json",
     },
+    blog: {
+      type: "string",
+    },
     images: {
       type: "json",
     },
@@ -50,7 +53,7 @@ module.exports = {
 
   fn: async function (inputs) {
     // All done.
-    user = this.req.session.user
+    user = this.req.session.user;
     if (inputs.state == 2) {
       inputs["approvedBy"] = user.id;
     }

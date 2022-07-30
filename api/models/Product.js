@@ -60,6 +60,9 @@ module.exports = {
     seo: {
       type: "json",
     },
+    blog: {
+      type: "string",
+    },
     approvedBy: {
       model: "user",
     },

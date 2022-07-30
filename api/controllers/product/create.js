@@ -43,6 +43,9 @@ module.exports = {
     seo: {
       type: "json",
     },
+    blog: {
+      type: "string",
+    },
     images: {
       type: "json",
       required: true,
