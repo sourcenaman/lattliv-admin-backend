@@ -8,6 +8,10 @@ module.exports = {
       type: "string",
       required: true,
     },
+    type: {
+      type: "string",
+      required: true,
+    },
     image: {
       type: "json",
     },
@@ -37,7 +41,6 @@ module.exports = {
   fn: async function (inputs, exits) {
     await Section.create(inputs)
       .intercept("E_UNIQUE", (err) => {
-        console.log(err)
         if (err.attrNames[0] == 'tag'){
           exits.alreadyExist({ message: "This tag is already linked to a section." });
         }
@@ -49,9 +52,6 @@ module.exports = {
         exits.er({ message: "Something went wrong." });
       })
       .fetch();
-    // if(inputs.comics){
-    //   await Comic.update({ id: inputs.comics }).set({ section: section.id })
-    // }
     exits.created({ message: "Created" });
   },
 };

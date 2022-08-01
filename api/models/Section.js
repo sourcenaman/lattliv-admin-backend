@@ -27,6 +27,9 @@ module.exports = {
     image: {
       type: "json",
     },
+    type: {
+      type: "string",
+    },
     tag: {
       model: "tag",
       unique: true
