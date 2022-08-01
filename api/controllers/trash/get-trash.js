@@ -16,7 +16,7 @@ module.exports = {
       product['type'] = 'product'
     }
     categories = await Category.find({
-      select: ["id", "name"],
+      select: ["id", "name", "parent"],
       where: { state: 3 },
     });
     for (const category of categories){
@@ -26,6 +26,7 @@ module.exports = {
       else{
         category['type'] = 'category'
       }
+      delete category["parent"]
     }
     return products.concat(categories);
   },
