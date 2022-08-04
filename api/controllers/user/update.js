@@ -31,9 +31,7 @@ module.exports = {
   exits: {},
 
   fn: async function (inputs) {
-    if (inputs.access || inputs.password){
-      inputs["token"] = ""
-    }
+    inputs["token"] = ""
     var user = await User.updateOne({ id: inputs.id }).set(inputs);
     return user;
   },
