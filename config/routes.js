@@ -49,7 +49,7 @@ module.exports.routes = {
 
   //TRASH
   "GET /trash/": { action: "trash/get-trash" },
-  "PATCH /trash/:id": { action: "trash/restore-trash" },
+  "PATCH /trash/": { action: "trash/restore-trash" },
   "DELETE /trash/": { action: "trash/delete-trash" },
 
   //STORE
