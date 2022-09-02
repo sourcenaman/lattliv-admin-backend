@@ -8,7 +8,7 @@ module.exports = {
       type: "string",
       required: true,
     },
-    category: {
+    products: {
       type: ["json"],
       required: true,
     },
@@ -32,10 +32,7 @@ module.exports = {
   fn: async function (inputs, exits) {
     let data = {};
     data["name"] = inputs.name;
-    data["products"] = [];
-    for (category of inputs.category) {
-      data["products"].push(...category.products);
-    }
+    data["products"] = inputs.products;
     var tag = await Tag.create({ name: inputs.name })
     .intercept("E_UNIQUE", () => {
         exits.alreadyExist({ message: "Name already exist." });
