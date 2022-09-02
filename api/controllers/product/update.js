@@ -49,12 +49,20 @@ module.exports = {
     },
   },
 
-  exits: {},
+  exits: {
+    badRequest: {
+      statusCode: 400
+    }
+  },
 
-  fn: async function (inputs) {
+  fn: async function (inputs, exits) {
     // All done.
     user = this.req.session.user;
     if (inputs.state == 2) {
+      let sub_category = Category.findOne({ id: inputs.category }).populate('parent')
+      if (sub_category.state != 2 || sub_category.parent.state !=2) {
+        return exits.badRequest({ message: "Category or Subcategory not published." });
+      }
       inputs["approvedBy"] = user.id;
     }
     var product = await Product.updateOne({ id: inputs.id }).set(inputs);
