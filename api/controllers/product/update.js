@@ -59,7 +59,7 @@ module.exports = {
     // All done.
     user = this.req.session.user;
     if (inputs.state == 2) {
-      let sub_category = Category.findOne({ id: inputs.category }).populate('parent')
+      let sub_category = await Category.findOne({ id: inputs.category }).populate('parent')
       if (sub_category.state != 2 || sub_category.parent.state !=2) {
         return exits.badRequest({ message: "Category or Subcategory not published." });
       }
