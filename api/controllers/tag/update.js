@@ -28,7 +28,7 @@ module.exports = {
   fn: async function (inputs, exits) {
     let data = {};
     data["name"] = inputs.name;
-    data["products"] = [];
+    data["products"] = inputs.products;
     await Tag.updateOne({ id: inputs.id }).set({ name: inputs.name });
     await Tag.replaceCollection(inputs.id, "products", []);
     await Tag.addToCollection(inputs.id, "products", data.products);
