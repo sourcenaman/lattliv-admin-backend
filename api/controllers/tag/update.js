@@ -6,13 +6,13 @@ module.exports = {
   inputs: {
     id: {
       type: "number",
-      required: true
+      required: true,
     },
     name: {
       type: "string",
       required: true,
     },
-    category: {
+    products: {
       type: ["json"],
       required: true,
     },
@@ -29,10 +29,7 @@ module.exports = {
     let data = {};
     data["name"] = inputs.name;
     data["products"] = [];
-    for (category of inputs.category) {
-      data["products"].push(...category.products);
-    }
-    await Tag.updateOne({ id: inputs.id }).set({ name: inputs.name })
+    await Tag.updateOne({ id: inputs.id }).set({ name: inputs.name });
     await Tag.replaceCollection(inputs.id, "products", []);
     await Tag.addToCollection(inputs.id, "products", data.products);
     exits.updated({ message: "Modified" });
