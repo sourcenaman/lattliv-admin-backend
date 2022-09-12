@@ -33,7 +33,7 @@ module.exports.security = {
       "http://localhost:3000",
       "http://localhost:4200",
       "http://localhost:1337",
-      "https://admin.pratapindustries.in"
+      "https://admin.lattliv.in"
     ],
     allowCredentials: true,
     allowRequestHeaders: "*"
