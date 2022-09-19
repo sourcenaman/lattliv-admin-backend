@@ -81,11 +81,11 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     user = this.req.session.user;
-    if (inputs.state == 1 || inputs.state == 6) {
+    if (inputs.state == 1 || inputs.state == 5) {
       inputs["createdBy"] = user.id;
     } else {
       exits.stateNotAllowed({
-        message: "Status not allowed. Allowed status Save(1) or Review(6)",
+        message: "Status not allowed. Allowed status Save or Review",
       });
     }
     var category = await Category.findOne({ id: inputs.category });
