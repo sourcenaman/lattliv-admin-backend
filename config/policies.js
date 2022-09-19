@@ -19,6 +19,7 @@ module.exports.policies = {
 
   // '*': true,
   '*': 'isAuthenticated',
-  'user/login': true
+  'user/login': true,
+  'website/*': true
 
 };
