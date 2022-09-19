@@ -78,7 +78,7 @@ module.exports = {
         blog: product.blog,
         slug: product.slug,
       };
-      var product = await Product.updateOne({ id: inputs.id }).set("publish": publish);
+      var product = await Product.updateOne({ id: inputs.id }).set({ "publish": publish });
     }
     return product;
   },
