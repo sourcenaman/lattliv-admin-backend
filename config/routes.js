@@ -89,6 +89,14 @@ module.exports.routes = {
   "GET /banner/": { action: "banner/view" },
   "POST /banner/": { action: "banner/create" },
 
+
+
+
+  //WEBSITE
+  "GET /banner/": { action: "website/banner/view" },
+
+
+
   //OTHERS
   "GET /index/": { controller: "UploadController", action: "index" },
   "POST /upload/": { controller: "UploadController", action: "upload" },
