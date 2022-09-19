@@ -44,9 +44,17 @@ module.exports = {
         "image": category.image,
         "seo": category.seo
       }
+      convertToSlug = (text) => {
+        return text
+          .toLowerCase()
+          .replace(/[^\w ]+/g, "")
+          .replace(/ +/g, "-");
+      };
+      let slug = await convertToSlug(category.name);
       await Category.updateOne({ id: inputs.id }).set({ 
         "publish": publish,
-        "approvedBy": user.id
+        "approvedBy": user.id,
+        "slug": slug
        })
     }
     return category;

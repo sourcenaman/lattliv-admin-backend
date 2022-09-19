@@ -47,6 +47,13 @@ module.exports = {
     user = this.req.session.user;
     if (inputs.state == 1 || inputs.state == 5) {
       inputs["createdBy"] = user.id;
+      convertToSlug = ((text) => {
+        return text.toLowerCase()
+          .replace(/[^\w ]+/g, "")
+          .replace(/ +/g, "-");
+      })
+      let slug = await convertToSlug(inputs.name)
+      inputs["slug"] = slug
     } else {
       exits.stateNotAllowed({
         message: "Status not allowed. Allowed status Save or Review",

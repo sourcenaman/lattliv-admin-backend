@@ -23,6 +23,9 @@ module.exports = {
       required: true,
       unique: true
     },
+    slug: {
+      type: "string"
+    },
     parent: {
       model: "category",
     },
