@@ -50,6 +50,9 @@ module.exports = {
     image: {
       type: "json",
     },
+    publish: {
+      type: "json"
+    }
   },
 };
 

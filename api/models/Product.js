@@ -78,6 +78,9 @@ module.exports = {
       unique: true,
       allowNull: true,
     },
+    publish: {
+      type: "json"
+    }
   },
 };
 

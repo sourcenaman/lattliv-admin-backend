@@ -66,6 +66,20 @@ module.exports = {
       inputs["approvedBy"] = user.id;
     }
     var product = await Product.updateOne({ id: inputs.id }).set(inputs);
+    if (inputs.state == 2){
+      let publish = {
+        name: product.name,
+        shortDesc: product.shortDesc,
+        longDesc: product.longDesc,
+        price: product.price,
+        specification: product.specification,
+        images: product.images,
+        seo: product.seo,
+        blog: product.blog,
+        slug: product.slug,
+      };
+      var product = await Product.updateOne({ id: inputs.id }).set("publish": publish);
+    }
     return product;
   },
 };
