@@ -89,15 +89,12 @@ module.exports.routes = {
   "GET /banner/": { action: "banner/view" },
   "POST /banner/": { action: "banner/create" },
 
-
-
-
   //WEBSITE
-  "GET /banners/": { action: "website/banner/view" },
-  "GET /category/": { action: "website/category/view" },
-  "GET /category/:slug": { action: "website/category/view-prods" },
-  "POST /franchise/create/": { action: "website/franchise/create" },
-  "GET /stores/": { action: "website/store/view" },
+  "GET /user/banner/": { action: "website/banner/view" },
+  "GET /user/category/": { action: "website/category/view" },
+  "GET /user/category/:id": { action: "website/category/view-prods" },
+  "POST /user/franchise/create/": { action: "website/franchise/create" },
+  "GET /user/stores/": { action: "website/store/view" },
 
   //OTHERS
   "GET /index/": { controller: "UploadController", action: "index" },

@@ -20,10 +20,12 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     var categories = await Category.find({
-      select: ["publish"],
-      where: { parent: null }
+      select: ["id", "publish"],
+      where: { 
+        parent: null,
+        publish: {"!=": null}
+      }
     });
-    categories = categories.map((cat) => cat.publish);
     return exits.success(categories);
   },
 };
