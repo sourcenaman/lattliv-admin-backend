@@ -98,6 +98,8 @@ module.exports.routes = {
   //WEBSITE FRANCHISE
   "POST /franchise/create/": { action: "website/franchise/create" },
 
+  //STORE LOCATOR
+  "GET /stores/": { action: "website/store/view" },
 
   //OTHERS
   "GET /index/": { controller: "UploadController", action: "index" },
