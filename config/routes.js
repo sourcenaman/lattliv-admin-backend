@@ -97,6 +97,8 @@ module.exports.routes = {
   "GET /category/": { action: "website/category/view" },
   "GET /category/:slug": { action: "website/category/view-prods" },
 
+  //WEBSITE FRANCHISE
+  "POST /franchise/create/": { action: "website/franchise/create" },
 
 
   //OTHERS
