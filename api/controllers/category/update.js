@@ -39,11 +39,6 @@ module.exports = {
     let user = await this.req.session.user;
     var category = await Category.updateOne({ id: inputs.id }).set(inputs);
     if (inputs.state == 2){
-      let publish = {
-        "name": category.name,
-        "image": category.image,
-        "seo": category.seo
-      }
       convertToSlug = (text) => {
         return text
           .toLowerCase()
@@ -51,6 +46,12 @@ module.exports = {
           .replace(/ +/g, "-");
       };
       let slug = await convertToSlug(category.name);
+      let publish = {
+        "name": category.name,
+        "image": category.image,
+        "seo": category.seo,
+        "slug": slug
+      }
       await Category.updateOne({ id: inputs.id }).set({ 
         "publish": publish,
         "approvedBy": user.id,
