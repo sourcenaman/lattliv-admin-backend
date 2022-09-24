@@ -96,11 +96,7 @@ module.exports.routes = {
   "GET /banner/": { action: "website/banner/view" },
   "GET /category/": { action: "website/category/view" },
   "GET /category/:slug": { action: "website/category/view-prods" },
-
-  //WEBSITE FRANCHISE
   "POST /franchise/create/": { action: "website/franchise/create" },
-
-  //STORE LOCATOR
   "GET /stores/": { action: "website/store/view" },
 
   //OTHERS
