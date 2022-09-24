@@ -95,6 +95,8 @@ module.exports.routes = {
   //WEBSITE
   "GET /banner/": { action: "website/banner/view" },
 
+  //WEBSITE FRANCHISE
+  "POST /franchise/create/": { action: "website/franchise/create" },
 
 
   //OTHERS
