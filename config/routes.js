@@ -95,6 +95,7 @@ module.exports.routes = {
   "GET /user/category/:id": { action: "website/category/view-prods" },
   "POST /user/franchise/create/": { action: "website/franchise/create" },
   "GET /user/stores/": { action: "website/store/view" },
+  "GET /user/sections/": { action: "website/custom-section/view" },
 
   //OTHERS
   "GET /index/": { controller: "UploadController", action: "index" },
