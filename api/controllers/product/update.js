@@ -52,6 +52,9 @@ module.exports = {
   exits: {
     badRequest: {
       statusCode: 400
+    },
+    success: {
+      statusCode: 200
     }
   },
 
@@ -80,6 +83,6 @@ module.exports = {
       };
       var product = await Product.updateOne({ id: inputs.id }).set({ "publish": publish });
     }
-    return product;
+    return exits.success();
   },
 };
