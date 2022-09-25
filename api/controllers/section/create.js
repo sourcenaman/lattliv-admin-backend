@@ -42,7 +42,7 @@ module.exports = {
     await Section.create(inputs)
       .intercept("E_UNIQUE", (err) => {
         if (err.attrNames[0] == 'tag'){
-          exits.alreadyExist({ message: "This tag is already linked to a section." });
+          exits.alreadyExist({ message: "This tag is already linked to a section or collection." });
         }
         else{
           exits.alreadyExist({ message: "Name already exist." });
