@@ -55,8 +55,8 @@ module.exports = {
       }).populateAll();
     }
     if (section){
-      exits.success(section)
+      return exits.success(section)
     }
-    exits.notFound({ message: "Section(s) not found." })
+    return exits.notFound({ message: "Section(s) not found." })
   },
 };
