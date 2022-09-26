@@ -20,6 +20,10 @@ module.exports = {
     comics: {
       type: ["number"],
     },
+    type: {
+      type: "string",
+      required: true,
+    },
   },
 
   exits: {
@@ -38,7 +42,6 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
-    console.log(inputs)
     await Section.updateOne({ id: inputs.id })
       .set(inputs)
       .intercept("E_UNIQUE", () => {
@@ -48,9 +51,6 @@ module.exports = {
         exits.er({ message: "Something went wrong." });
       })
       .fetch();
-    // if (inputs.comics) {
-    //   await Comic.update({ id: inputs.comics }).set({ section: inputs.id });
-    // }
     exits.updated({ message: "Modified" });
   },
 };
