@@ -37,10 +37,11 @@ module.exports = {
             publish: { "!=": null },
             category: subIds
           },
-          select: ["publish"]
+          select: ["publish", "id"]
         });
         products = products.map(x => {
           x.publish["type"] = "product"
+          x.publish["id"] = x.id
           return x.publish
         })
         return exits.success(products);
@@ -81,6 +82,14 @@ module.exports = {
           })
           return exits.success(comics);
         }
+      
+      case "product":
+        let product = await Product.findOne({
+          where: { "id": inputs.id },
+          select: ["publish", "id"]
+        })
+        product.publish["id"] = product.id
+        return exits.success(product.publish);
     }
 
   },
