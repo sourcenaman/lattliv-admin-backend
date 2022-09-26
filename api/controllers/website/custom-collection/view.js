@@ -31,7 +31,7 @@ module.exports = {
     for (let section of sections){
       let slug = await convertToSlug(section.name);
       resp.push({
-        section,
+        ...section,
         slug: slug
       });
     }
