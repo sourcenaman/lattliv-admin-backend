@@ -62,6 +62,7 @@ module.exports = {
           for (let product of tag_products) {
             if (product.product_tags.publish) {
               product.product_tags.publish["type"] = "product"
+              product.product_tags.publish["id"] = product.product_tags.id;
               products.push(product.product_tags.publish);
             }
           }
