@@ -29,7 +29,7 @@ module.exports = {
         .sort("id ASC");
       for (let product of tag_products) {
         if (product.product_tags.publish) {
-          product.product_tags.publish["id"] = product.product_tags;
+          product.product_tags.publish["id"] = product.product_tags.id;
           products.push(product.product_tags.publish);
         }
       }
