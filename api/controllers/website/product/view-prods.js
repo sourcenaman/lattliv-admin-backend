@@ -84,12 +84,25 @@ module.exports = {
         }
       
       case "product":
-        let product = await Product.findOne({
-          where: { "id": inputs.id },
-          select: ["publish", "id"]
-        })
-        product.publish["id"] = product.id
-        return exits.success(product.publish);
+        if (inputs.id){
+          let product = await Product.findOne({
+            where: { id: inputs.id },
+            select: ["publish", "id"],
+          });
+          product.publish["id"] = product.id;
+          return exits.success(product.publish);    
+        }
+        else{
+          let products = await Product.find({
+            where: { publish: { "!=": null } },
+            select: ["publish", "id"]
+          })
+          products = products.map(x => {
+            x.publish["id"] = x.id
+            return x.publish
+          })
+          return exits.success(products);
+        }
     }
 
   },
