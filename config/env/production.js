@@ -139,6 +139,7 @@ module.exports = {
         "http://localhost:4200",
         "http://localhost:1337",
         "https://admin.lattliv.in",
+        "https://ui.lattliv.in",
       ],
       allowCredentials: true,
       allowRequestHeaders: "*",
