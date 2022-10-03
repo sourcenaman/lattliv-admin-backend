@@ -80,6 +80,7 @@ module.exports = {
         seo: product.seo,
         blog: product.blog,
         slug: product.slug,
+        inStock: product.inStock,
       };
       var product = await Product.updateOne({ id: inputs.id }).set({ "publish": publish });
     }
