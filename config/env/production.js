@@ -136,6 +136,8 @@ module.exports = {
       allRoutes: true,
       allowOrigins: [
         "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:3002",
         "http://localhost:4200",
         "http://localhost:1337",
         "https://admin.lattliv.in",
