@@ -17,8 +17,7 @@ module.exports = {
       required: true,
     },
     longDesc: {
-      type: "string",
-      required: true,
+      type: "string"
     },
     price: {
       type: "number",
