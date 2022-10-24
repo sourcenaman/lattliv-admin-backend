@@ -71,6 +71,7 @@ module.exports = {
     var product = await Product.updateOne({ id: inputs.id }).set(inputs);
     if (inputs.state == 2){
       let publish = {
+        sku: product.sku,
         name: product.name,
         shortDesc: product.shortDesc,
         longDesc: product.longDesc,
