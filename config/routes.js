@@ -98,6 +98,7 @@ module.exports.routes = {
   "GET /user/stores/": { action: "website/store/view" },
   "GET /user/sections/": { action: "website/custom-section/view" },
   "GET /user/collections/": { action: "website/custom-collection/view" },
+  "GET /user/search/": { action: "website/search" },
 
   //OTHERS
   "GET /index/": { controller: "UploadController", action: "index" },
