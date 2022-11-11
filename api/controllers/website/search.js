@@ -20,9 +20,14 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
-    let query = `SELECT id, name, slug from product WHERE ("name" ILIKE $1 or "shortDesc" ILIKE $1)`;
+    let query = `SELECT id, publish from product WHERE ("name" ILIKE $1 or "shortDesc" ILIKE $1)`;
     let toLookFor = '%' +inputs.search+ '%'
     let products = await sails.sendNativeQuery(query, [toLookFor]);
-    return exits.success(products.rows)
+    products = products.rows
+    products = products.map((x) => {
+      x.publish["id"] = x.id;
+      return x.publish;
+    });
+    return exits.success(products)
   },
 };
